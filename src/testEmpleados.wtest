@@ -1,0 +1,27 @@
+import empleados.*
+
+describe "test de galvan"{
+	test "deuda y dinero 0"{
+		assert.equals(0, galvan.totalDinero())
+		assert.equals(0, galvan.totalDeuda())
+	}
+	test "deuda 40000, dinero 0"{
+		galvan.gastar(40000)
+		assert.equals(40000, galvan.totalDeuda())
+		assert.equals(0, galvan.totalDinero())
+	}
+	test "deuda 120000, dinero 0"{
+		galvan.gastar(80000)
+		assert.equals(120000, galvan.totalDeuda())
+	}
+	test "galvan cobra sueldo, paga deuda, dinero 30000"{
+		galvan.cobrarSueldo()
+		assert.equals(0, galvan.totalDeuda())
+		assert.equals(30000, galvan.totalDinero())
+	}
+	test ""{
+		galvan.gastar(250000)
+		assert.equals(220000, galvan.totalDeuda())
+		assert.equals(0, galvan.totalDinero())
+	}
+}
